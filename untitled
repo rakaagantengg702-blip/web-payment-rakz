@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAKAZXZ STORE - Pembayaran</title>
+    <style>
+        /* Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        /* Container Utama */
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+        
+        .subtitle {
+            color: #aaa;
+            font-size: 1.1rem;
+        }
+        
+        /* Kartu Pembayaran */
+        .payment-card {
+            background: linear-gradient(145deg, #1a1a1a, #111);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .payment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+        }
+        
+        .payment-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .payment-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.5rem;
+            background: #222;
+        }
+        
+        .payment-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .payment-details {
+            margin-top: 15px;
+        }
+        
+        .payment-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .payment-label {
+            color: #aaa;
+            font-weight: 500;
+        }
+        
+        .payment-value {
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .copy-btn {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .copy-btn:hover {
+            background: #444;
+        }
+        
+        /* QR Code Section */
+        .qrcode-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .qrcode-img {
+            max-width: 250px;
+            border-radius: 12px;
+            border: 1px solid #444;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Saluran Section */
+        .channel-card {
+            background: linear-gradient(145deg, #1a1a1a, #111);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #333;
+            text-align: center;
+        }
+        
+        .channel-btn {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .channel-btn:hover {
+            background: #20bd5a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+            width: 100%;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .payment-card {
+                padding: 20px;
+            }
+            
+            .payment-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .payment-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .qrcode-img {
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">RAKAZXZ STORE</div>
+            <div class="subtitle">Pembayaran Mudah dan Aman</div>
+        </header>
+        
+        <!-- Kartu DANA -->
+        <div class="payment-card">
+            <div class="payment-header">
+                <div class="payment-icon" style="background: #00d1ff; color: #fff;">
+                    D
+                </div>
+                <div class="payment-title">DANA</div>
+            </div>
+            <div class="payment-details">
+                <div class="payment-info">
+                    <span class="payment-label">Nomor:</span>
+                    <span class="payment-value">088976109146</span>
+                </div>
+                <div class="payment-info">
+                    <span class="payment-label">Atas Nama:</span>
+                    <span class="payment-value">RAKAA</span>
+                </div>
+                <button class="copy-btn" onclick="copyToClipboard('088976109146')">Salin Nomor</button>
+            </div>
+        </div>
+        
+        <!-- Kartu GOPAY -->
+        <div class="payment-card">
+            <div class="payment-header">
+                <div class="payment-icon" style="background: #00b272; color: #fff;">
+                    G
+                </div>
+                <div class="payment-title">GOPAY</div>
+            </div>
+            <div class="payment-details">
+                <div class="payment-info">
+                    <span class="payment-label">Nomor:</span>
+                    <span class="payment-value">088976109146</span>
+                </div>
+                <div class="payment-info">
+                    <span class="payment-label">Atas Nama:</span>
+                    <span class="payment-value">RAKZXZ STORE</span>
+                </div>
+                <button class="copy-btn" onclick="copyToClipboard('088976109146')">Salin Nomor</button>
+            </div>
+        </div>
+        
+        <!-- Kartu QRIS -->
+        <div class="payment-card">
+            <div class="payment-header">
+                <div class="payment-icon" style="background: #6a0dad; color: #fff;">
+                    Q
+                </div>
+                <div class="payment-title">QRIS</div>
+            </div>
+            <div class="payment-details">
+                <div class="qrcode-container">
+                    <img src="https://files.catbox.moe/7ncv6v.jpg" alt="QR Code" class="qrcode-img">
+                    <p style="margin-top: 15px; color: #aaa;">Scan QR Code di atas untuk pembayaran</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Saluran WhatsApp -->
+        <div class="channel-card">
+            <h2>Saluran WhatsApp</h2>
+            <p style="margin-top: 10px; color: #aaa;">Ikuti saluran kami untuk informasi terbaru</p>
+            <a href="https://whatsapp.com/channel/0029Vb6l0daKbYMPT73wyX27" target="_blank" class="channel-btn">
+                Ikuti Saluran WhatsApp
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        &copy; 2023 RAKZXZ STORE. All rights reserved.
+    </footer>
+    
+    <script>
+        // Fungsi untuk menyalin teks ke clipboard
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert('Nomor berhasil disalin: ' + text);
+            }, function(err) {
+                console.error('Gagal menyalin teks: ', err);
+            });
+        }
+        
+        // Efek animasi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.payment-card, .channel-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>
